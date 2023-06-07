@@ -1,0 +1,47 @@
+.nav {
+    display: flex;
+   justify-content: space-between;
+}
+
+.user {
+    color: orange;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.userBlock {
+    display: flex;
+    margin-left: auto;
+}
+
+.logoutBtn {
+    width: 100px;
+}
+
+.header {
+    display: flex;
+}
+
+.headerLink {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.homeLink {
+    margin-right: 10px;
+}
+
+.registerLink {
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registerLink:last-child{
+    margin-right: 0;
+}
+
+.title {
+    font-weight: 500;
+    margin-top: 25px;
+}

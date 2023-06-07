@@ -1,0 +1,19 @@
+.form {
+    width: 50%;
+  display: flex;
+  flex-direction: column;
+    margin: 0 auto;
+
+    margin-bottom: 20px;
+}
+
+.formItem{
+   
+    font-weight: 500;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.formBtn {
+    width: 100px;
+}
