@@ -48,36 +48,5 @@ export const authSlice = createSlice({
   },
 });
 
-// export const authApi = CreateApi({
-//     baseQuery: fetchBaseQuery({
-//       baseUrl: 'https://connections-api.herokuapp.com/',
-//       prepareHeaders: (headers, { getState }) => {
-//         // By default, if we have a token in the store, let's use that for authenticated requests
-//         const token = getState().auth.token
-//         if (token) {
-//           headers.set('authorization', `Bearer ${token}`)
-//         }
-//         return headers
-//       },
-//     }),
-//     endpoints: (builder) => ({
-//       login: builder.mutation({
-//         query: (credentials) => ({
-//           url: 'users/login',
-//           method: 'POST',
-//           body: credentials,
-//         }),
-//       }),
-//       signup: builder.mutation({
-//         query: (credentials) => ({
-//           url: 'users/signup',
-//           method: 'POST',
-//           body: credentials,
-//         }),
-//       }),
-//       protected: builder.mutation({
-//         query: () => 'protected',
-//       }),
-//     }),
-//   })
+
   
