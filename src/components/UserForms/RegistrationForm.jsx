@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   authAction,
   useRegisterUserMutation,
 } from 'redux/Authorization/AuthorizationAPI';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import css from "./UserForms.module.css"
 
 export function RegisterForm() {
@@ -13,8 +13,13 @@ export function RegisterForm() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
-  const [registerUser, { isSuccess }] = useRegisterUserMutation();
-
+  const [registerUser, { isSuccess, error }] = useRegisterUserMutation();
+console.log(error)
+useEffect(() => {
+  if(error?.data?.name === "MongoError"){
+    alert("user already exist")
+  }
+}, [error?.data?.name])
   const handleChange = e => {
     const { name, value } = e.target;
     switch (name) {
@@ -36,6 +41,7 @@ export function RegisterForm() {
   const handleSubmit = e => {
     e.preventDefault();
     saveRegister({ name, email, password });
+ 
     if (isSuccess) {
       setMail('');
       setPassword('');

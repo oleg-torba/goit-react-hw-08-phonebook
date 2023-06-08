@@ -3,7 +3,7 @@ import { ContactList } from './ContactList/ContactList';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AuthNav from './UserMenu/AuthNav';
 import { RegisterForm } from './UserForms/RegistrationForm';
 import { LoginForm } from './UserForms/LoginForm';
@@ -23,8 +23,6 @@ export function App() {
   useEffect(() => {
     if (isSuccess) dispatch(getCurrentUserAction(result));
   }, [isSuccess, result, dispatch]);
-  console.log(useFetchCurrentUserQuery());
-  console.log(useSelector(state => state));
 
   return (
     <Routes>
@@ -32,7 +30,7 @@ export function App() {
         <Route
           path="register"
           element={
-            <PublicRoute restricted>
+            <PublicRoute>
               <RegisterForm />
             </PublicRoute>
           }
@@ -40,7 +38,7 @@ export function App() {
         <Route
           path="login"
           element={
-            <PublicRoute restricted>
+            <PublicRoute>
               <LoginForm />
             </PublicRoute>
           }
@@ -64,7 +62,7 @@ export function App() {
         />
       </Route>
 
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<AuthNav />} />
     </Routes>
   );
 }

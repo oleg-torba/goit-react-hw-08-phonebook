@@ -19,8 +19,8 @@ export default function AuthNav() {
             {!isLoggedIn && (
               <>
                 <div className={css.userBlock}>
-                  <Link className={css.registerLink} to="register">Registration</Link>
-                  <Link className={css.registerLink} to="login">Login</Link>
+                  <Link className={css.registerLink} to="/register">Registration</Link>
+                  <Link className={css.registerLink} to="/login">Login</Link>
                 </div>
               </>
             )}

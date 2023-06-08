@@ -1,19 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   loginAction,
   useLoginUserMutation,
 } from 'redux/Authorization/AuthorizationAPI';
-import css from "./UserForms.module.css"
-
+import css from './UserForms.module.css';
 
 export function LoginForm() {
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const [loginUser, { isSuccess, error }] = useLoginUserMutation();
 
+  useEffect(() => {
+    if (error) {
+      alert('Incorrect email or password');
+    }
+  });
   const handleChange = e => {
     const { name, value } = e.target;
     switch (name) {
@@ -67,7 +71,9 @@ export function LoginForm() {
           value={password}
           onChange={handleChange}
         />
-        <button  className={css.userFormBtn} type="submit">Login</button>
+        <button className={css.userFormBtn} type="submit">
+          Login
+        </button>
       </form>
     </>
   );
